@@ -1,7 +1,79 @@
 ﻿@page "/"
 
+@inject NavigationManager NavigationManager
+
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, adopters!</h1>
+<!-- Hero Section -->
+<div class="hero-section">
+    <div class="hero-content">
+        <h1>Welcome to PawPal!</h1>
+        <p>Connecting pets with loving homes while making adoption accessible and responsible.</p>
+        <a href="/Account/Login" class="btn-primary">Adopt a Pet</a>
+    </div>
+</div>
 
-Welcome to your pet adoption app.
+<!-- User Survey -->
+<div class="nav-card" @onclick="NavigateToSurvey">
+    <h3>Pet Preferences Survey</h3>
+    <p>Help us understand your ideal pet by filling out a quick survey.</p>
+</div>
+
+<!-- Navigation Links -->
+<section class="navigation-links">
+    <h2>Explore PawPal</h2>
+    <div class="nav-grid">
+        <!-- User Section -->
+        <div class="nav-card" @onclick="NavigateToUser">
+            <h3>User Profile</h3>
+            <p>Access your wishlist, applications, and adoption preferences.</p>
+        </div>
+
+        <!-- Authentication -->
+        <div class="nav-card" @onclick="NavigateToAuth">
+            <h3>Authentication</h3>
+            <p>Register, log in, or reset your password to get started.</p>
+        </div>
+
+        <!-- Adopt a Pet -->
+        <div class="nav-card" @onclick="NavigateToAdopt">
+            <h3>Adopt a Pet</h3>
+            <p>Browse available pets, view their profiles, and apply to adopt.</p>
+        </div>
+
+        <!-- Staff Section -->
+        <div class="nav-card" @onclick="NavigateToStaff">
+            <h3>Staff</h3>
+            <p>Review applications and access analytics tools.</p>
+        </div>
+
+        <!-- Volunteer/Donate -->
+        <div class="nav-card" @onclick="NavigateToVolunteer">
+            <h3>Volunteer/Donate</h3>
+            <p>Support PawPal by volunteering or making a donation.</p>
+        </div>
+
+        <!-- Shop Pet Supplies -->
+        <div class="nav-card" @onclick="NavigateToShop">
+            <h3>Shop Pet Supplies</h3>
+            <p>Order pet supplies and support our cause.</p>
+        </div>
+    </div>
+</section>
+
+@code {
+
+    void NavigateToLogin()
+    {
+        // Navigate to the login page
+        NavigationManager.NavigateTo("/Account/Login");
+    }
+
+    void NavigateToUser() => NavigationManager.NavigateTo("/user-profile");
+    void NavigateToAuth() => NavigationManager.NavigateTo("/auth");
+    void NavigateToAdopt() => NavigationManager.NavigateTo("/adopt");
+    void NavigateToStaff() => NavigationManager.NavigateTo("/staff");
+    void NavigateToVolunteer() => NavigationManager.NavigateTo("/volunteer");
+    void NavigateToShop() => NavigationManager.NavigateTo("/shop");
+    void NavigateToSurvey() => NavigationManager.NavigateTo("/preference-survey");
+}

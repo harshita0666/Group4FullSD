@@ -1,79 +1,62 @@
 ﻿@implements IDisposable
 @inject NavigationManager NavigationManager
+
 <div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">Group4FullSD</a>
-    </div>
-</div>
-
-<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
-
-<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+    <a class="navbar-brand" href="">Group4FullSD</a>
+    <input type="checkbox" id="menu-toggle" class="navbar-toggler" title="Navigation menu" />
+    <label for="menu-toggle" class="navbar-toggler-icon"></label>
+    <ul class="nav-bar">
+        <li class="nav-item">
+            <NavLink class="nav-link" href="">
+                <span class="bi bi-house-door-fill-nav-menu"></span> Home
             </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="weather">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
-            </NavLink>
-        </div>
+        </li>
         <AuthorizeView>
             <Authorized>
-                <div class="nav-item px-3">
+                <li class="nav-item">
                     <NavLink class="nav-link" href="Account/Manage">
-                        <span class="bi bi-person-fill-nav-menu" aria-hidden="true"></span> @context.User.Identity?.Name
+                        <span class="bi bi-person-fill-nav-menu"></span> @context.User.Identity?.Name
                     </NavLink>
-                </div>
-                <div class="nav-item px-3">
+                </li>
+                <li class="nav-item">
                     <form action="Account/Logout" method="post">
                         <AntiforgeryToken />
                         <input type="hidden" name="ReturnUrl" value="@currentUrl" />
-                        <button type="submit" class="nav-link">
-                            <span class="bi bi-arrow-bar-left-nav-menu" aria-hidden="true"></span> Logout
+                        <button type="submit" class="nav-link btn btn-link">
+                            <span class="bi bi-arrow-bar-left-nav-menu"></span> Logout
                         </button>
                     </form>
-                </div>
+                </li>
             </Authorized>
             <NotAuthorized>
-                <div class="nav-item px-3">
+                <li class="nav-item">
                     <NavLink class="nav-link" href="Account/Register">
-                        <span class="bi bi-person-nav-menu" aria-hidden="true"></span> Register
+                        <span class="bi bi-person-nav-menu"></span> Register
                     </NavLink>
-                </div>
-                <div class="nav-item px-3">
+                </li>
+                <li class="nav-item">
                     <NavLink class="nav-link" href="Account/Login">
-                        <span class="bi bi-person-badge-nav-menu" aria-hidden="true"></span> Login
+                        <span class="bi bi-person-badge-nav-menu"></span> Login
                     </NavLink>
-                </div>
+                </li>
             </NotAuthorized>
         </AuthorizeView>
-
-        <div class="nav-item px-3">
+        <li class="nav-item">
             <NavLink class="nav-link" href="adopterpage">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Adopter Page
+                <span class="bi bi-list-nested-nav-menu"></span> Adopter Page
             </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
+        </li>
+        <li class="nav-item">
             <NavLink class="nav-link" href="pet">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Pets
+                <span class="bi bi-list-nested-nav-menu"></span> Pets
             </NavLink>
-        </div>
-    </nav>
+        </li>
+    </ul>
 </div>
 
 @code {
     private string? currentUrl;
+
     protected override void OnInitialized()
     {
         currentUrl = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
@@ -90,5 +73,4 @@
     {
         NavigationManager.LocationChanged -= OnLocationChanged;
     }
-
 }

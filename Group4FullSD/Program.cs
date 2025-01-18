@@ -5,12 +5,14 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(args); //creates instance of the application
 var connectionString = builder.Configuration.GetConnectionString("Group4FullSDContextConnection") ?? throw new InvalidOperationException("Connection string 'Group4FullSDContextConnection' not found.");;
 
 builder.Services.AddDbContext<Group4FullSDContext>(options => options.UseSqlServer(connectionString));
 
+
 // Add services to the container.
+//add razor and interactive server components
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
@@ -36,7 +38,7 @@ builder.Services.AddIdentityCore<Group4FullSDUser>(options => options.SignIn.Req
 
 builder.Services.AddSingleton<IEmailSender<Group4FullSDUser>, IdentityNoOpEmailSender>();
 
-var app = builder.Build();
+var app = builder.Build(); //builds the web application instance
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -46,13 +48,13 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+app.UseHttpsRedirection(); //adds a middleware 
 
 app.UseStaticFiles();
 app.UseAntiforgery();
 
 app.MapRazorComponents<App>()
-    .AddInteractiveServerRenderMode();
+    .AddInteractiveServerRenderMode(); //enable interactive srver mode
 
 app.MapAdditionalIdentityEndpoints();;
 

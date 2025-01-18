@@ -1,0 +1,100 @@
+﻿/* Hero Section */
+.hero-section {
+    background-image: url('/images/hero-background.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+    position: relative;
+    color: white;
+    padding: 2rem;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn-primary {
+    background-color: #ff7f50;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+    .btn-primary:hover {
+        background-color: #e96b3d;
+    }
+
+/* About Section */
+.about-section {
+    padding: 2rem;
+    background-color: #f9f9f9; /* Light background */
+    text-align: center;
+    border-top: 2px solid #ff7f50; /* Highlight border */
+}
+
+    .about-section h2 {
+        font-size: 2rem;
+        color: #ff4500; /* Bright orange to draw attention */
+        margin-bottom: 1rem;
+        font-weight: bold;
+    }
+
+    .about-section p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #555; /* Soft gray for readability */
+        margin-bottom: 1rem;
+    }
+
+/* Navigation Links Section */
+.navigation-links {
+    padding: 2rem;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+    .navigation-links h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+.nav-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.nav-card {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+    .nav-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-card h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+        color: #ff7f50;
+    }
+
+    .nav-card p {
+        font-size: 1rem;
+        color: #555;
+    }
