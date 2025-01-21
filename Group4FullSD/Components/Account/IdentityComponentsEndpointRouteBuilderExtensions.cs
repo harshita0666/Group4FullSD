@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
+using Group4FullSD.Components.Account;
+
+
 
 namespace Microsoft.AspNetCore.Routing
 {
